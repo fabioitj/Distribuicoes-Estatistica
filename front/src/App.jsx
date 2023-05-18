@@ -20,10 +20,12 @@ function App() {
 
   return (
     <div className='distribuicoes'>
-      <div className='continuas' style={{ display: 'flex', height: '100%' }}>
+      <div className='continuas' style={{ display: 'flex', gap: '1rem', flexDirection: 'column', height: '100%' }}>
+        <h3>Contínuas</h3>
         <AccordionDemo key={0} graphs={continuas}/>
       </div>
-      <div className='discretas'>
+      <div className='discretas' style={{ display: 'flex', gap: '1rem', flexDirection: 'column', height: '100%' }}>
+        <h3>Discretas</h3>
         <AccordionDemo key={1} graphs={discretas}/>
       </div>
     </div>

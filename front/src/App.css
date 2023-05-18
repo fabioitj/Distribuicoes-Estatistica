@@ -35,7 +35,7 @@
   display: flex; 
   gap: 2rem; 
   height: 100%;
-  scale: 2;
+  scale: 1.75;
 }
 
 @media (prefers-reduced-motion: no-preference) {
