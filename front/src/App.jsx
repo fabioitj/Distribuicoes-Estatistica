@@ -10,7 +10,7 @@ function App() {
   const [discretas, setDiscretas] = useState([]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/distribuicoes")
+    axios.get("https://flask-production-bd7a.up.railway.app/distribuicoes")
       .then((response) => {
         console.log(response.data);
         setContinuas(response.data[0].func);
