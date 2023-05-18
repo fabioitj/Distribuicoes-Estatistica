@@ -231,3 +231,6 @@ def get_distribuicoes():
     
 
     return distribuicoes
+
+if __name__ == '__main__':
+    app.run()
