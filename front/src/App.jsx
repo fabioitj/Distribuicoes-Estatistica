@@ -1,37 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState, useEffect } from 'react'
 import './App.css'
-import { useEffect } from 'react'
 import axios from "axios"
+import AccordionDemo from './components/accordion';
 
 
 function App() {
 
-  const [beta, setBeta] = useState("");
-  const [cauchy, setCauchy] = useState("");
-  const [pareto, setPareto] = useState("");
-  const [triangular, setTriangular] = useState("");
-  const [gumbel, setGumbel] = useState("");
+  const [continuas, setContinuas] = useState([]);
+  const [discretas, setDiscretas] = useState([]);
 
   useEffect(() => {
-      axios.get("http://127.0.0.1:5000/distribuicoes")
-        .then((response) => {
-          console.log(response.data);
-          // const newBeta = "data:image/png;base64, " + response.data;
-          // console.log(newBeta);
-          // setBeta(newBeta);
-        });
+    axios.get("http://127.0.0.1:5000/distribuicoes")
+      .then((response) => {
+        console.log(response.data);
+        setContinuas(response.data[0].func);
+        setDiscretas(response.data[1].func);
+      });
   }, []);
 
   return (
-    <>
-      <img src={beta} style={{ backgroundColor: "red", width: '200px', height: 'auto'}}/>
-      <img src={beta} style={{ backgroundColor: "red", width: '200px', height: 'auto'}}/>
-      <img src={beta} style={{ backgroundColor: "red", width: '200px', height: 'auto'}}/>
-      <img src={beta} style={{ backgroundColor: "red", width: '200px', height: 'auto'}}/>
-      <img src={beta} style={{ backgroundColor: "red", width: '200px', height: 'auto'}}/>
-    </>
+    <div className='distribuicoes'>
+      <div className='continuas' style={{ display: 'flex', height: '100%' }}>
+        <AccordionDemo key={0} graphs={continuas}/>
+      </div>
+      <div className='discretas'>
+        <AccordionDemo key={1} graphs={discretas}/>
+      </div>
+    </div>
   )
 }
 
