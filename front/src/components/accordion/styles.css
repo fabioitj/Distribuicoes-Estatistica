@@ -91,13 +91,13 @@ h3 {
     height: 0;
   }
   to {
-    height: calc(var(--radix-accordion-content-height) / 2);
+    height: calc(var(--radix-accordion-content-height) / 1.75);
   }
 }
 
 @keyframes slideUp {
   from {
-    height: calc(var(--radix-accordion-content-height) / 2);
+    height: calc(var(--radix-accordion-content-height) / 1.75);
   }
   to {
     height: 0;
