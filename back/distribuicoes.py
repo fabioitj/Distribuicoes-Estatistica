@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 import matplotlib
 matplotlib.use('Agg')
@@ -11,6 +11,11 @@ import base64
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def index():
+    return render_template('<html><head></head><body><h2>Testando</h2></body></html>')
+
 
 def get_beta():
     # Parâmetros da distribuição Beta
